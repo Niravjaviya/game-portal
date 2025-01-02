@@ -5,7 +5,7 @@
     "description" """
            Gaming portal to show inbuilt functionalities"""
     "category": "Tools",
-    "depends": ['portal'],
+    "depends": ['portal','mail'],
     "data": [
         'security/ir.model.access.csv',
         'views/receipt_view.xml',
