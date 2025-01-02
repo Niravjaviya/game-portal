@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="Game portal" id="menu_root_game_portal">
+        <menuitem id = "menu_game_portal_config" name= "Configuration">
+            <menuitem id = "menu_bank" name= "Account" action="base.action_res_partner_bank_account_form"/>
+            <menuitem id = "menu_receipt" name= "Receipt" action="game_portal.action_gaming_receipt"/>
+            <menuitem id = "menu_subscription" name= "Subscription" action="game_portal.action_gaming_subcription"/>
+            <menuitem id = "menu_transaction" name= "Transaction" action="game_portal.action_gaming_transaction"/>
+            <menuitem id= "menu_product" name="Product" action="product.product_normal_action"/>
+            <menuitem id = "menu_player" name= "Player" action="game_portal.action_gaming_player"/>
+            <menuitem id = "menu_wallet" name= "Wallet" action="game_portal.action_gaming_wallet"/>
+            <menuitem id = "menu_announcement" name= "Announcement" action="game_portal.action_gaming_announcement"/>
+
+
+        </menuitem>
+        <!-- <menuitem id = "menu_player" name= "player"/>
+        <menuitem id = "menu_wallet" name= "wallet">
+        <menuitem id = "menu_player" name= "subscription">
+        <menuitem id = "menu_player" name= "product">
+        <menuitem id = "menu_player" name= "announcement">
+        <menuitem id = "menu_player" name= "reciept">
+        <menuitem id = "menu_player" name= "account">
+        <menuitem id = "menu_player" name= "bank">
+        <menuitem id = "menu_player" name= "transaction"> -->
+    </menuitem>
+</odoo>

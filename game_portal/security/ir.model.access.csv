@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+game_portal.access_gaming_player,access_gaming_player,game_portal.model_gaming_player,base.group_user,1,1,1,1
+game_portal.access_gaming_announcement,access_gaming_announcement,game_portal.model_gaming_announcement,base.group_user,1,1,1,1
+game_portal.access_gaming_bank,access_gaming_bank,game_portal.model_gaming_bank,base.group_user,1,1,1,1
+game_portal.access_gaming_receipt,access_gaming_receipt,game_portal.model_gaming_receipt,base.group_user,1,1,1,1
+game_portal.access_gaming_subscription,access_gaming_subscription,game_portal.model_gaming_subscription,base.group_user,1,1,1,1
+game_portal.access_gaming_transaction,access_gaming_transaction,game_portal.model_gaming_transaction,base.group_user,1,1,1,1
+game_portal.access_gaming_wallet,access_gaming_wallet,game_portal.model_gaming_wallet,base.group_user,1,1,1,1

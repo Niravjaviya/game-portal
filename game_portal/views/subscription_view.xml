@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <odoo>
+            <record id="game_subcription_list_view" model="ir.ui.view">
+                <field name="name">gaming.subscription.list</field>
+                <field name="model">gaming.subscription</field>
+                <field name="arch" type="xml">
+                    <list>
+                            <field name="name"/>
+                            <field name="player_id"/>
+                            <field name="product_id"/>
+                            <field name="user_id"/>
+                            <field name="transaction_ids"/>
+                            
+                    </list>
+                </field>
+            </record>
+
+            <record id="game_subscription_form_view" model="ir.ui.view">
+                <field name="name">gaming.subscription.form</field>
+                <field name="model">gaming.subscription</field>
+                <field name="arch" type="xml">
+                    <form>
+                        <sheet>
+                             <div class="oe_title">
+                                <h1>
+                                    <field name="name"/>
+                                </h1>
+                            </div>
+                            <group>
+                                <group>
+                                    <field name="player_id"/>
+                                    <field name="product_id"/>
+                                </group>
+                                <group>
+                                    <field name="user_id"/>
+                                </group>
+                            </group>
+                            <notebook>
+                                <page string="Transactions">
+                                    <field name="transaction_ids"/>
+                                </page>
+                            </notebook>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+            <record id="game_subscription_search_view" model="ir.ui.view">
+                <field name="name">gaming.subscription.search</field>
+                <field name="model">gaming.subscription</field>
+                <field name="arch" type="xml">
+                    <search>
+                            <field name="name"/>
+                            <field name="player_id"/>
+                            <field name="product_id"/>
+                            <field name="user_id"/>
+                            <field name="transaction_ids"/>
+                            <filter string="Admin" name="admin" domain="[('user_id', '=', 7)]"/>
+                            <separator/>
+                            <group>
+                            <filter string="Category" name="user_admin_category" context="{'group_by': 'user_id'}"/>
+                            </group>
+                            <searchpanel>
+                                <field name='product_id'/>
+                            </searchpanel>
+                    </search>
+                </field>
+            </record>
+
+            
+            <record id ="action_gaming_subcription" model ="ir.actions.act_window" >
+            <field name="name">gaming</field>
+            <field name="res_model">gaming.subscription</field>
+            <field name="view_mode">list,form,search</field>
+            <field name="view_id" ref="game_subcription_list_view"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smilling_face">
+                    create a propery to advertise
+                </p>
+            </field>
+            </record>
+    </odoo>
