@@ -4,12 +4,13 @@
                 <field name="name">gaming.subscription.list</field>
                 <field name="model">gaming.subscription</field>
                 <field name="arch" type="xml">
-                    <list>
+                    <list decoration-info="state == 'draft'" decoration-success="state == 'subscribed'" decoration-danger="state == 'pending'">
                             <field name="name"/>
                             <field name="player_id"/>
                             <field name="product_id"/>
                             <field name="user_id"/>
                             <field name="transaction_ids"/>
+                            <field name="state" />
                             
                     </list>
                 </field>
@@ -20,6 +21,11 @@
                 <field name="model">gaming.subscription</field>
                 <field name="arch" type="xml">
                     <form>
+                        <header>
+                            <button name='status_subscribed' type='object' string='Subscribed' invisible="state == 'subscribed'" />
+                            <button name='status_pending' type='object' string='Pending' invisible="state == 'pending'"/>
+                            <field name='state' widget='statusbar'/>
+                        </header>
                         <sheet>
                              <div class="oe_title">
                                 <h1>
@@ -28,6 +34,7 @@
                             </div>
                             <group>
                                 <group>
+                                    <field name="state" />
                                     <field name="player_id"/>
                                     <field name="product_id"/>
                                 </group>
@@ -41,6 +48,7 @@
                                 </page>
                             </notebook>
                         </sheet>
+                        <chatter/>
                     </form>
                 </field>
             </record>
@@ -56,6 +64,9 @@
                             <field name="user_id"/>
                             <field name="transaction_ids"/>
                             <filter string="Admin" name="admin" domain="[('user_id', '=', 7)]"/>
+                            <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                            <filter name="subscribed" string="Subscribed" domain="[('state', '=', 'subscribed')]"/>
+                            <filter name="pending" string="Pending" domain="[('state', '=', 'pending')]"/>
                             <separator/>
                             <group>
                             <filter string="Category" name="user_admin_category" context="{'group_by': 'user_id'}"/>
@@ -73,6 +84,7 @@
             <field name="res_model">gaming.subscription</field>
             <field name="view_mode">list,form,search</field>
             <field name="view_id" ref="game_subcription_list_view"/>
+            <field name="context">{'search_default_subscribed': 1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smilling_face">
                     create a propery to advertise
