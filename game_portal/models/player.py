@@ -6,7 +6,7 @@ class player (models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string='Name', required= True)
-    state= fields.Selection([('draft','Draft'),('active','Active'),('inactive','Inactive')],default='draft')
+    state= fields.Selection([('draft','Draft'),('active','Active'),('inactive','Inactive')],default='draft', tracking=True)
     wallet_id= fields.Many2one('gaming.wallet', string="Wallet")
 
     def status_active(self):
