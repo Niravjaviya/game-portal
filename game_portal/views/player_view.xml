@@ -79,4 +79,24 @@
             </field>
             </record>
 
+            <record id="action_set_active_" model="ir.actions.server">
+                <field name="name">Set Active</field>
+                <field name="model_id" ref="game_portal.model_gaming_player"/>
+                <field name="binding_model_id" ref="game_portal.model_gaming_player"/>
+                <field name="state">code</field>
+                <field name="code">
+                        action= records.status_active()
+                </field>
+            </record>
+
+            <record id="action_set_inactive_" model="ir.actions.server">
+                <field name="name">Set Inactive</field>
+                <field name="model_id" ref="game_portal.model_gaming_player"/>
+                <field name="binding_model_id" ref="game_portal.model_gaming_player"/>
+                <field name="state">code</field>
+                <field name="code">
+                        action= records.status_inactive()
+                </field>
+            </record>
+
     </odoo>

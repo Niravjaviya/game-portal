@@ -13,5 +13,6 @@ class player (models.Model):
         self.state = 'active'
 
     def status_inactive(self):
-        self.state = 'inactive'    
+        self.state = 'inactive'  
+
     
