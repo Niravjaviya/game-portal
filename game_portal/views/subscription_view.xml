@@ -91,4 +91,24 @@
                 </p>
             </field>
             </record>
+
+            <record id="action_set_subscribed_" model="ir.actions.server">
+                <field name="name">Set Subscribed</field>
+                <field name="model_id" ref="game_portal.model_gaming_subscription"/>
+                <field name="binding_model_id" ref="game_portal.model_gaming_subscription"/>
+                <field name="state">code</field>
+                <field name="code">
+                        action= records.status_subscribed()
+                </field>
+            </record>
+
+            <record id="action_set_pending_" model="ir.actions.server">
+                <field name="name">Set Pending</field>
+                <field name="model_id" ref="game_portal.model_gaming_subscription"/>
+                <field name="binding_model_id" ref="game_portal.model_gaming_subscription"/>
+                <field name="state">code</field>
+                <field name="code">
+                        action= records.status_pending()
+                </field>
+            </record>
     </odoo>
