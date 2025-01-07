@@ -8,6 +8,8 @@
                                 <field name="name"/>
                                 <field name="wallet_id"/>
                                 <field name="state" />
+                                <field name="partner_id"/>
+                                <field name="user_id"/>
                                
                         </list>
                     </field>
@@ -35,6 +37,8 @@
                                     <field name="wallet_id"
                                         invisible="state == 'draft'"
                                         readonly="state == 'inactive'"/>
+                                    <field name="partner_id"/>
+                                    <field name="user_id" domain="[('id', '=', available_user_ids)]"/>
                                 </group>
                             </group>
                         </sheet>
