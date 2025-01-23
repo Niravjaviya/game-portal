@@ -10,7 +10,7 @@
                                 <field name="state" />
                                 <field name="partner_id"/>
                                 <field name="user_id"/>
-                               
+                                <field name="account_id"/>
                         </list>
                     </field>
             </record>
@@ -39,7 +39,7 @@
                                         readonly="state == 'inactive'"/>
                                     <field name="user_id" />
                                     <field name="partner_id" domain="[('user_ids', 'in', user_id)]"/>
-                                    
+                                    <field name="account_id"/>
                                 </group>
                             </group>
                         </sheet>
