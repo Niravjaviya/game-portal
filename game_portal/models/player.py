@@ -8,17 +8,22 @@ class player (models.Model):
     name = fields.Char(string='Name', required= True)
     state = fields.Selection([('draft','Draft'),('active','Active'),('inactive','Inactive')],default='draft', tracking=True)
     wallet_id = fields.Many2one('gaming.wallet', string="Wallet")
+    user_id = fields.Many2one('res.users', string='User',domain=lambda self: self._compute_available_users())
+    # partner_id = fields.Many2one('res.partner', string='Partner', domain=lambda self: self._compute_available_partners())
     partner_id = fields.Many2one('res.partner', string='Partner')
-    user_id = fields.Many2one('res.users', string='Sales Person',  default=lambda self: self.env.user)
-    available_user_ids = fields.Many2many('res.users', compute="_compute_available_users")
+    
 
     def _compute_available_users(self):
         portal_group = self.env.ref('base.group_portal')
         portal_users = self.env['res.users'].search([('groups_id', '=', portal_group.id)])
-        for rec in self:
-            rec.available_user_ids = portal_users.ids
+        return [('id', '=', portal_users.ids)]
+    
+    # def _compute_available_partners(self):
+    #     us_partner = self.env['res.country'].search([('code', '=', 'US')])
+    #     us_cal_state = self.env['res.country.state'].search([('code', '=', 'CA'), ('country_id', '=', us_partner.id)])
+    #     # import pdb; pdb.set_trace()
+    #     return [('state_id', '=', us_cal_state.id)]
         
-
     @api.model
     def _get_sales_user(self):
         return self.env.user

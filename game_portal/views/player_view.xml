@@ -34,11 +34,12 @@
                             <group>
                                 <group>
                                     <field name="state"/>
-                                    <field name="wallet_id"
+                                    <field name="wallet_id" domain = "[('state', '=', 'approved')]"
                                         invisible="state == 'draft'"
                                         readonly="state == 'inactive'"/>
-                                    <field name="partner_id"/>
-                                    <field name="user_id" domain="[('id', '=', available_user_ids)]"/>
+                                    <field name="user_id" />
+                                    <field name="partner_id" domain="[('user_ids', 'in', user_id)]"/>
+                                    
                                 </group>
                             </group>
                         </sheet>
