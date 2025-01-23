@@ -34,7 +34,7 @@
                             <group>
                                 <group>
                                     <field name="state"/>
-                                    <field name="wallet_id" domain = "[('state', '=', 'approved')]"
+                                    <field name="wallet_id" domain = "[('state', '=', 'approved'),('user_id', '=', user_id)]"
                                         invisible="state == 'draft'"
                                         readonly="state == 'inactive'"/>
                                     <field name="user_id" />

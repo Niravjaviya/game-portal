@@ -7,8 +7,9 @@ class player (models.Model):
 
     name = fields.Char(string='Name', required= True)
     state = fields.Selection([('draft','Draft'),('active','Active'),('inactive','Inactive')],default='draft', tracking=True)
-    wallet_id = fields.Many2one('gaming.wallet', string="Wallet")
+    
     user_id = fields.Many2one('res.users', string='User',domain=lambda self: self._compute_available_users())
+    wallet_id = fields.Many2one('gaming.wallet', string="Wallet")
     # partner_id = fields.Many2one('res.partner', string='Partner', domain=lambda self: self._compute_available_partners())
     partner_id = fields.Many2one('res.partner', string='Partner')
     account_id = fields.Many2one('res.partner.bank', string="Account", domain="[('partner_id', '=', partner_id)]")

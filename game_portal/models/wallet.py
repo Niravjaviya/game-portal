@@ -8,6 +8,8 @@ class wallet (models.Model):
     state= fields.Selection([('draft','Draft'),('approved','Approved '),('pending','Pending'),('closed','Closed')],default='draft')
     transaction_ids= fields.One2many('gaming.transaction','wallet_id', string='Transactions')
     user_id= fields.Many2one('res.users', string= 'Users')
+    partner_id = fields.Many2one('res.partner', string='Partner')
+    account_id = fields.Many2one('res.partner.bank', string="Account", domain="[('partner_id', '=', partner_id)]")
     subscription_ids= fields.Many2many('gaming.subscription', string= 'Subscriptions')
     # deposit_ids= fields.
    

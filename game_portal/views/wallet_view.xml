@@ -7,6 +7,8 @@
                     <list>
                             <field name="name"/>
                             <field name="user_id"/>
+                            <field name="partner_id"/>
+                            <field name="account_id"/>
                             <field name="subscription_ids"/>
                             <field name="state" />
                     </list>
@@ -34,6 +36,8 @@
                                 <group>
                                     <field name="state" />
                                     <field name="user_id"/>
+                                    <field name="partner_id" domain="[('user_ids', 'in', user_id)]"/>
+                                    <field name="account_id"/>
                                 </group>
                                 <group>
                                     

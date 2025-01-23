@@ -10,6 +10,7 @@
                             <field name="account_id"/>
                             <field name="amount"/>
                             <field name="state"/>
+                            <field name="categ_id"/>
                             
                     </list>
                 </field>
@@ -35,6 +36,7 @@
                                 <group>
                                     <field name="state"/>
                                     <field name="user_id"/>
+                                    <field name="categ_id"/>
                                 </group>
                                 <group>
                                     <field name="account_id"/>
