@@ -10,7 +10,9 @@ class receipt (models.Model):
     user_id= fields.Many2one('res.users', string= 'Users')
     amount= fields.Float()
     account_id= fields.Many2one('res.partner.bank', string='Account')
-    # categ_id= fields.Many2one('product.category', string='Product Category')
+    categ_id= fields.Many2one('product.category', string='Product Category')
+    product_id= fields.Many2one('product.product',string='Product')
+    
 
     def status_approved(self):
         self.state = 'approved'
