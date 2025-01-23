@@ -12,7 +12,7 @@ class receipt (models.Model):
     account_id= fields.Many2one('res.partner.bank', string='Account')
     categ_id= fields.Many2one('product.category', string='Product Category')
     product_id= fields.Many2one('product.product',string='Product')
-    product_tag_id= fields.Many2one('product.tag', string= 'Product Tag')
+    product_tag_ids= fields.Many2many('product.tag', string= 'Product Tag')
     # tax_id= fields.Many2one('account.tax', string='Sales Tax')
     
 
