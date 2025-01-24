@@ -10,6 +10,7 @@
                             <field name="user_id"/>
                             <field name="subcription_ids"/>
                             <field name="account_id"/>
+                            <field name="amount"/>
                     </list>
                 </field>
             </record>
@@ -33,6 +34,7 @@
                                 <group>
                                     <field name="subcription_ids"/>
                                     <field name="account_id"/>
+                                    <field name="amount"/>
                                 </group>
                             </group>
                         </sheet>

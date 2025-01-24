@@ -56,3 +56,10 @@ class player (models.Model):
     # def is_user_portal(self,user_id):
     #     if user in self.env.ref('base.group_portal'):
     #         return user
+
+    @api.onchange('user_id')
+    def _onchange_user_id(self):
+        if self.user_id:
+            self.partner_id = self.user_id.partner_id
+            self.account_id = self.env['res.partner.bank'].search([('partner_id', '=', self.user_id.partner_id.id),('bank_id.bic', '=', 'ING' )], limit=1)
+        

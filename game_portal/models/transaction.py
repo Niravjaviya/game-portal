@@ -11,3 +11,4 @@ class transaction (models.Model):
 
     subcription_ids= fields.Many2one('gaming.subscription', string='Subscription')  
     account_id= fields.Many2one('res.partner.bank', string='Account')
+    amount = fields.Float(string="Amount")
