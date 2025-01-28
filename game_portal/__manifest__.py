@@ -15,6 +15,9 @@
         'views/wallet_view.xml',
         'views/announcement_view.xml',
         'views/menu_items.xml',
+        'views/account_view.xml',
+        'views/ir_sequence_data.xml'
+
     ],
     "demo":[],
     "installable": True,

@@ -62,4 +62,10 @@ class player (models.Model):
         if self.user_id:
             self.partner_id = self.user_id.partner_id
             self.account_id = self.env['res.partner.bank'].search([('partner_id', '=', self.user_id.partner_id.id),('bank_id.bic', '=', 'ING' )], limit=1)
+
+    @api.onchange('account_id')
+    def _onchange_account_id(self):
+        # import pdb;pdb.set_trace()
+        if self.account_id:
+           self.wallet_id = self.env['gaming.wallet'].search([('account_id', '=', self.account_id.id)], limit=1)
         

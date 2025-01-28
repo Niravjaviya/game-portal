@@ -1,0 +1,47 @@
+<odoo>
+         <record id="view_partner_bank_tree_inherit" model="ir.ui.view">
+            <field name="name">res.partner.bank.list.inherit</field>
+            <field name="model">res.partner.bank</field>
+            <field name="inherit_id" ref="base.view_partner_bank_tree"/>
+            <field name="arch" type="xml">
+                <!-- Add a new column for the custom field 'x_custom_field' -->
+                <xpath expr="//list" position="inside">
+                    <field name="street"/>
+                    <field name="street2" optional="hide"/>
+                    <field name="city" optional="hide"/>
+                    <field name="state"/>
+                    <field name="zip" optional="hide"/>
+                    <field name="country"/>
+
+                </xpath>
+            </field>
+        </record>
+        <!-- Inheriting the existing form view of 'product.template' -->
+        <record id="view_partner_bank_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.bank.form.inherit.account.inherit</field>
+            <field name="model">res.partner.bank</field>
+            <field name="inherit_id" ref="base.view_partner_bank_form"/>
+            <field name="arch" type="xml">
+                <!-- Adding a new field in the form view -->
+                <sheet position="inside">
+                    <group>
+                        <group name="address_details">
+                            <label for="street" string="Bank Address"/>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="city" placeholder="City" class="o_address_city"/>
+                                    <field name="state" class="o_address_state" placeholder="State" options="{&quot;no_open&quot;: True}" on_change="1" can_create="True" can_write="True"/>
+                                    <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                    <field name="country" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" on_change="1" can_create="True" can_write="True"/>
+                                </div>
+                        </group>
+                        <group name="communication_details">
+                                <field name="phone" class="o_force_ltr"/>
+                                <field name="email" widget="email"/>
+                        </group>
+                    </group>
+                </sheet>
+            </field>
+        </record>
+</odoo>    
