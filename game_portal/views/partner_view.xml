@@ -10,7 +10,19 @@
                         name="action_show_wallets">
                     <field string="Wallets" name="wallet_count" widget="statinfo"/>
                 </button>
+                <button name="%(game_portal.action_gaming_player)d" 
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-solid fa-users">
+                    <field string="Players" name="player_count" widget="statinfo" />
+                </button>
             </div>
         </field>
     </record>
+    <!-- <record id="action_count_players" model="ir.actions.act_window">
+        <field name="name">Player Count</field>
+        <field name="res_model">gaming.player</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('partner_id', '=', active_id)]</field>
+    </record> -->
 </odoo>

@@ -32,3 +32,12 @@ class Partner(models.Model):
         # all_child = self.with_context(active_test=False).search([('id', 'child_of', self.ids)])
         action["domain"] = [('partner_id', '=', self.id)]
         return action
+
+    player_count = fields.Integer(string="Player Count", compute='_compute_player_count')
+
+    @api.depends('player_ids')
+    def _compute_player_count(self):
+        for partner in self:
+            partner.player_count = len(partner.player_ids)
+
+    player_ids = fields.One2many('gaming.player', 'partner_id', string='Players')
