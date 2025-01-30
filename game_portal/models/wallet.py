@@ -32,9 +32,9 @@ class wallet (models.Model):
                vals['name'] = self.env['ir.sequence'].next_by_code('gaming.wallet.sequence') or _('New')
         
         # Proceed to create the record
-        record = super(wallet, self).create(vals_list)
+        records = super(wallet, self).create(vals_list)
 
-        for record in record:
+        for record in records:
             if record.partner_id:
                 # Post message to the partner's chatter
                 message = Markup(f'A new wallet <a href="/web#id={record.id}&model=gaming.wallet&view_type=form">{record.name}</a> has been created and linked to partner {record.partner_id.name}.')
@@ -48,3 +48,26 @@ class wallet (models.Model):
                     subtype_xmlid='mail.mt_note'
                 )
         return record
+    
+    def write(self, vals):
+        # Check if account_id is being updated
+        if 'account_id' in vals:
+            for record in self:
+                old_account = record.account_id
+                new_account = self.env['res.partner.bank'].browse(vals['account_id'])
+                
+                # Post message to partner's chatter when account is updated
+                if old_account != new_account:
+                    # Create a clickable message for both old and new account
+                    message = Markup(f"The account has been updated to <a href='/web#id={new_account.id}&model=res.partner.bank&view_type=form'>{new_account.display_name}</a>.")
+
+
+                    # Post the message to the partner's chatter
+                    record.partner_id.message_post(
+                        body=message,
+                        subtype_xmlid='mail.mt_note'
+                    )
+
+        # Call the original write method to apply the update
+        return super(wallet, self).write(vals)
+    

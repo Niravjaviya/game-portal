@@ -8,3 +8,4 @@ from . import receipt
 from . import subscription
 from . import transaction
 from . import wallet
+from . import partner
