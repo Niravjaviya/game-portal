@@ -4,14 +4,15 @@ from markupsafe import Markup
 class wallet (models.Model):
     _name = 'gaming.wallet'
     _description = 'Gaming Wallet'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin','gaming.partner.mixin']
 
     name= fields.Char(string='Name', required= False)
     state= fields.Selection([('draft','Draft'),('approved','Approved '),('pending','Pending'),('closed','Closed')],default='draft')
     transaction_ids= fields.One2many('gaming.transaction','wallet_id', string='Transactions')
-    user_id= fields.Many2one('res.users', string= 'Users')
-    partner_id = fields.Many2one('res.partner', string='Partner')
-    account_id = fields.Many2one('res.partner.bank', string="Account", domain="[('partner_id', '=', partner_id)]")
+    # user_partner_account_id= fields.Many2one('gaming.partner.mixin', required=True, ondelete='cascade')
+    # user_id= fields.Many2one('res.users', string= 'Users')
+    # partner_id = fields.Many2one('res.partner', string='Partner')
+    # account_id = fields.Many2one('res.partner.bank', string="Account", domain="[('partner_id', '=', partner_id)]")
     subscription_ids= fields.Many2many('gaming.subscription', string= 'Subscriptions')
     # deposit_ids= fields.
    

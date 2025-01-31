@@ -34,10 +34,22 @@ class Partner(models.Model):
         return action
 
     player_count = fields.Integer(string="Player Count", compute='_compute_player_count')
+    player_ids = fields.One2many('gaming.player', 'partner_id', string='Players')
+
 
     @api.depends('player_ids')
     def _compute_player_count(self):
         for partner in self:
             partner.player_count = len(partner.player_ids)
 
-    player_ids = fields.One2many('gaming.player', 'partner_id', string='Players')
+    
+    def action_show_players(self):
+        for partner in self:
+            return {
+                'type': 'ir.actions.act_window',
+                'name': 'Players of ' + partner.name,
+                'res_model': 'gaming.player',
+                'view_mode': 'list,form',
+                'domain': [('id', '=', self.player_ids.ids)],
+                'target': 'current',
+            }

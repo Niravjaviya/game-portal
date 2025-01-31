@@ -30,10 +30,12 @@
                                 <group>
                                     <field name="wallet_id"/>
                                     <field name="user_id"/>
+                                    <field name="partner_id" domain="[('user_ids', 'in', user_id)]"/>
+                                    <field name="account_id"/>
+
                                 </group>
                                 <group>
                                     <field name="subcription_ids"/>
-                                    <field name="account_id"/>
                                     <field name="amount"/>
                                 </group>
                             </group>

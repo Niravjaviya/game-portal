@@ -17,7 +17,9 @@
         'views/menu_items.xml',
         'views/account_view.xml',
         'views/ir_sequence_data.xml',
-        'views/partner_view.xml'
+        'views/partner_view.xml',
+        'views/product_view.xml'
+
 
     ],
     "demo":[],

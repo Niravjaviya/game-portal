@@ -1,0 +1,16 @@
+<odoo>
+    <!-- Inherit the existing product form view and add a smart button -->
+    <record id="product_normal_form_view_inherit" model="ir.ui.view">
+        <field name="name">product.product.form.inherit</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" type="object" icon="fa-solid fa-inbox"
+                        name="action_show_subscriptions">
+                    <field string="Subscriptions" name="subscription_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

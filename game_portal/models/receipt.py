@@ -3,7 +3,7 @@ from odoo import fields, models
 class receipt (models.Model):
     _name = 'gaming.receipt'
     _description = 'Gaming receipt'
-    _inherit = ['image.mixin','mail.thread', 'mail.activity.mixin']
+    _inherit = ['image.mixin','mail.thread', 'mail.activity.mixin','gaming.partner.mixin']
 
     name= fields.Char(string='Name', required= True)
     state= fields.Selection([('draft','Draft'),('approved','Approved '),('rejected','Rejected')],default='draft')

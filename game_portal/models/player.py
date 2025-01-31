@@ -3,16 +3,16 @@ from odoo import fields, models,api
 class player (models.Model):
     _name = 'gaming.player'
     _description = 'Gaming player'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'gaming.partner.mixin']
 
     name = fields.Char(string='Name', required= True)
     state = fields.Selection([('draft','Draft'),('active','Active'),('inactive','Inactive')],default='draft', tracking=True)
     
-    user_id = fields.Many2one('res.users', string='User',domain=lambda self: self._compute_available_users())
+    # user_id = fields.Many2one('res.users', string='User',domain=lambda self: self._compute_available_users())
     wallet_id = fields.Many2one('gaming.wallet', string="Wallet")
     # partner_id = fields.Many2one('res.partner', string='Partner', domain=lambda self: self._compute_available_partners())
-    partner_id = fields.Many2one('res.partner', string='Partner')
-    account_id = fields.Many2one('res.partner.bank', string="Account", domain="[('partner_id', '=', partner_id)]")
+    # partner_id = fields.Many2one('res.partner', string='Partner')
+    # account_id = fields.Many2one('res.partner.bank', string="Account", domain="[('partner_id', '=', partner_id)]")
     
 
     def _compute_available_users(self):

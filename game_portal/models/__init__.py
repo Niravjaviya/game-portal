@@ -1,3 +1,4 @@
+from . import mixin_gaming_partner
 from . import gaming
 from . import account
 from . import announcement
