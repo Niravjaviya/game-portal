@@ -6,3 +6,4 @@ game_portal.access_gaming_receipt,access_gaming_receipt,game_portal.model_gaming
 game_portal.access_gaming_subscription,access_gaming_subscription,game_portal.model_gaming_subscription,base.group_user,1,1,1,1
 game_portal.access_gaming_transaction,access_gaming_transaction,game_portal.model_gaming_transaction,base.group_user,1,1,1,1
 game_portal.access_gaming_wallet,access_gaming_wallet,game_portal.model_gaming_wallet,base.group_user,1,1,1,1
+game_portal.access_player_transaction_wizard,access_player_transaction_wizard,game_portal.model_player_transaction_wizard,base.group_user,1,1,1,1

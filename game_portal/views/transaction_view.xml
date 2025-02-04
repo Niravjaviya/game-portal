@@ -32,6 +32,7 @@
                                     <field name="user_id"/>
                                     <field name="partner_id" domain="[('user_ids', 'in', user_id)]"/>
                                     <field name="account_id"/>
+                                    <field name='player_id'/>
 
                                 </group>
                                 <group>
